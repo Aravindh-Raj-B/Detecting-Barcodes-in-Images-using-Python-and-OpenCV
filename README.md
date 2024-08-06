@@ -1,5 +1,6 @@
 # Detecting-Barcodes-in-Images-using-Python-and-OpenCV
 The goal of this repo is to demonstrate a basic implementation of barcode detection using computer vision and image processing techniques
+
 ![image](https://github.com/user-attachments/assets/15462009-6512-4057-89a2-62d5364088f9)
 
 
@@ -14,6 +15,7 @@ Then we’ll setup our command line arguments. We need just a single switch here
 , which is the path to our image that contains a barcode that we want to detect.
 
 Now, time for some actual image processing:
+
 ![image](https://github.com/user-attachments/assets/715c734a-b1c7-4279-bb98-4e370d8bf738)
 
 
@@ -27,6 +29,7 @@ From there, we subtract the y-gradient of the Scharr operator from the x-gradien
 
 Our gradient
 representation of our original image above looks like:
+
 ![image](https://github.com/user-attachments/assets/791ec495-f9a7-448d-b0e3-8130641c95e1)
 
 
@@ -44,6 +47,7 @@ The output of the blurring and thresholding looks like this:
 ![image](https://github.com/user-attachments/assets/99447d76-8629-4cd4-ac3a-463ced701f72)
 
 However, as you can see in the threshold image above, there are gaps between the vertical bars of the barcode. In order to close these gaps and make it easier for our algorithm to detect the “blob”-like region of the barcode, we’ll need to perform some basic morphological operations:
+
 ![image](https://github.com/user-attachments/assets/a47bf2c0-50bf-471d-99ec-7ff25f8e21c0)
 
 
@@ -59,6 +63,7 @@ You can now see that the gaps are substantially more closed, as compared to the 
 Of course, now we have small blobs in the image that are not part of the actual barcode, but may interfere with our contour detection.
 
 Let’s go ahead and try to remove these small blobs:
+
 ![image](https://github.com/user-attachments/assets/05f40cf1-966a-4927-9131-9703eb6d320b)
 
 
